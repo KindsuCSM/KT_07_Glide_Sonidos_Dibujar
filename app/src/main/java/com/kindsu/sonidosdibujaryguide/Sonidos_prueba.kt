@@ -16,13 +16,13 @@ import com.kindsu.sonidosdibujaryguide.databinding.ActivitySonidosPruebaBinding
 
 class Sonidos_prueba : AppCompatActivity() {
     private lateinit var binding : ActivitySonidosPruebaBinding
-    private var soundPool : SoundPool? = null
-    private var audioManager : AudioManager? = null
-    private var streamType = AudioManager.STREAM_MUSIC
-    private var isLoaded = false
-    private var sound1 = 0
-    private var sound2 = 0
-    private var volume: Float = 1.0f
+    private var soundPool : SoundPool? = null //Manejar sonido
+    private var audioManager : AudioManager? = null //Gestionar volumen
+    private var streamType = AudioManager.STREAM_MUSIC //
+    private var isLoaded = false // Verificar sonidos cargados
+    private var sound1 = 0 //idPrimer audio
+    private var sound2 = 0 //idSegundo audio
+    private var volume: Float = 1.0f // Manejar volumen de los sonidos
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,7 +34,9 @@ class Sonidos_prueba : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, ToneGenerator.MAX_VOLUME)
+
+        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, ToneGenerator.MAX_VOLUME) // Crear ToneGenerator para generar un tono de notificacion del sistema
+        //Agregar el sonido de tg al boton pulsar
         binding.btnPulsar.setOnClickListener{
             tg.startTone(ToneGenerator.TONE_CDMA_ABBR_ALERT)
         }
@@ -91,8 +93,4 @@ class Sonidos_prueba : AppCompatActivity() {
             soundPool!!.play(sound, leftVolumn, rightVolumn, priority, loop, rate)
         }
     }
-
-
-
-
 }

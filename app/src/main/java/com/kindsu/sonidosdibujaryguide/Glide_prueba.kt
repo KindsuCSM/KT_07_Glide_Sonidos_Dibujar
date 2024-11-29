@@ -29,6 +29,7 @@ class Glide_prueba : AppCompatActivity() {
             insets
         }
 
+        // Añadir imagenes a los ImageView, tiene que ser el enlace directo a la imagen
         Glide.with(this)
             .load("https://static.wikia.nocookie.net/gatopedia/images/2/2e/El_gatoo.png/revision/latest?cb=20230103150310&path-prefix=es")
             .into(binding.ivImagen)
